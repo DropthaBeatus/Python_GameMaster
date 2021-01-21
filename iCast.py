@@ -82,6 +82,6 @@ class Bot21(commands.Cog):
 bot = commands.Bot(command_prefix='$')
 bot.add_cog(Bot21(bot))
 
-bot.run('NzUwMTU1MzA3Njk0Njg2MzE5.X02akg.0qfk0SeyOLTAuzckSymZGIvkq0s')
+bot.run('insert token here')
 
 
