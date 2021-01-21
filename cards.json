@@ -1,0 +1,367 @@
+[
+  {
+    "suit": "Hearts",
+    "color": "R",
+    "value": 2,
+    "card_name": "Two",
+    "code" : "2H"
+  },
+  {
+    "suit": "Hearts",
+    "color": "R",
+    "value": 3,
+    "card_name": "Three",
+    "code" : "3H"
+  },
+  {
+    "suit": "Hearts",
+    "color": "R",
+    "value": 4,
+    "card_name": "Four",
+    "code" : "4H"
+  },
+  {
+    "suit": "Hearts",
+    "color": "R",
+    "value": 5,
+    "card_name": "Five",
+    "code" : "5H"
+  },
+  {
+    "suit": "Hearts",
+    "color": "R",
+    "value": 6,
+    "card_name": "Six",
+    "code" : "6H"
+  },
+  {
+    "suit": "Hearts",
+    "color": "R",
+    "value": 7,
+    "card_name": "Seven",
+    "code" : "7H"
+  },
+  {
+    "suit": "Hearts",
+    "color": "R",
+    "value": 8,
+    "card_name": "Eight",
+    "code" : "8H"
+  },
+  {
+    "suit": "Hearts",
+    "color": "R",
+    "value": 9,
+    "card_name": "Nine",
+    "code" : "9H"
+  },
+  {
+    "suit": "Hearts",
+    "color": "R",
+    "value": 10,
+    "card_name": "Ten",
+    "code" : "10H"
+
+  },
+  {
+    "suit": "Hearts",
+    "color": "R",
+    "value": 10,
+    "card_name": "Jack",
+    "code" : "JH"
+  },
+  {
+    "suit": "Hearts",
+    "color": "R",
+    "value": 10,
+    "card_name": "Queen",
+    "code" : "QH"
+  },
+  {
+    "suit": "Hearts",
+    "color": "R",
+    "value": 10,
+    "card_name": "King",
+    "code" : "KH"
+  },
+  {
+    "suit": "Hearts",
+    "color": "R",
+    "value": 1,
+    "card_name": "Ace",
+    "code" : "AH"
+  },
+  {
+    "suit": "Diamonds",
+    "color": "R",
+    "value": 2,
+    "card_name": "Two",
+    "code" : "2D"
+  },
+  {
+    "suit": "Diamonds",
+    "color": "R",
+    "value": 3,
+    "card_name": "Three",
+    "code" : "3D"
+  },
+  {
+    "suit": "Diamonds",
+    "color": "R",
+    "value": 4,
+    "card_name": "Four",
+    "code" : "4D"
+  },
+  {
+    "suit": "Diamonds",
+    "color": "R",
+    "value": 5,
+    "card_name": "Five",
+    "code" : "5D"
+  },
+  {
+    "suit": "Diamonds",
+    "color": "R",
+    "value": 6,
+    "card_name": "Six",
+    "code" : "6D"
+  },
+  {
+    "suit": "Diamonds",
+    "color": "R",
+    "value": 7,
+    "card_name": "Seven",
+    "code" : "7D"
+  },
+  {
+    "suit": "Diamonds",
+    "color": "R",
+    "value": 8,
+    "card_name": "Eight",
+    "code" : "8D"
+  },
+  {
+    "suit": "Diamonds",
+    "color": "R",
+    "value": 9,
+    "card_name": "Nine",
+    "code" : "9D"
+  },
+  {
+    "suit": "Diamonds",
+    "color": "R",
+    "value": 10,
+    "card_name": "Ten",
+    "code" : "10D"
+  },
+  {
+    "suit": "Diamonds",
+    "color": "R",
+    "value": 10,
+    "card_name": "Jack",
+    "code" : "10J"
+  },
+  {
+    "suit": "Diamonds",
+    "color": "R",
+    "value": 10,
+    "card_name": "Queen",
+    "code" : "QD"
+  },
+  {
+    "suit": "Diamonds",
+    "color": "R",
+    "value": 10,
+    "card_name": "King",
+    "code" : "KD"
+  },
+  {
+    "suit": "Diamonds",
+    "color": "R",
+    "value": 1,
+    "card_name": "Ace",
+    "code" : "AD"
+  },
+  {
+    "suit": "Clubs",
+    "color" : "B",
+    "value": 2,
+    "card_name": "Two",
+    "code" : "2C"
+  },
+  {
+    "suit": "Clubs",
+    "color" : "B",
+    "value": 3,
+    "card_name": "Three",
+    "code" : "3C"
+  },
+  {
+    "suit": "Clubs",
+    "color" : "B",
+    "value": 4,
+    "card_name": "Four",
+    "code" : "4C"
+  },
+  {
+    "suit": "Clubs",
+    "color" : "B",
+    "value": 5,
+    "card_name": "Five",
+    "code" : "5C"
+  },
+  {
+    "suit": "Clubs",
+    "color" : "B",
+    "value": 6,
+    "card_name": "Six",
+    "code" : "6C"
+  },
+  {
+    "suit": "Clubs",
+    "color" : "B",
+    "value": 7,
+    "card_name": "Seven",
+    "code" : "7C"
+  },
+  {
+    "suit": "Clubs",
+    "color" : "B",
+    "value": 8,
+    "card_name": "Eight",
+    "code" : "8C"
+  },
+  {
+    "suit": "Clubs",
+    "color" : "B",
+    "value": 9,
+    "card_name": "Nine",
+    "code" : "9C"
+  },
+  {
+    "suit": "Clubs",
+    "color" : "B",
+    "value": 10,
+    "card_name": "Ten",
+    "code" : "10C"
+  },
+  {
+    "suit": "Clubs",
+    "color" : "B",
+    "value": 10,
+    "card_name": "Jack",
+    "code" : "JC"
+  },
+  {
+    "suit": "Clubs",
+    "color" : "B",
+    "value": 10,
+    "card_name": "Queen",
+    "code" : "QC"
+  },
+  {
+    "suit": "Clubs",
+    "color" : "B",
+    "value": 10,
+    "card_name": "King",
+    "code" : "KC"
+  },
+  {
+    "suit": "Clubs",
+    "color" : "B",
+    "value": 1,
+    "card_name": "Ace",
+    "code" : "AC"
+  },
+  {
+    "suit": "Spades",
+    "color": "B",
+    "value": 2,
+    "card_name": "Two",
+    "code" : "2S"
+  },
+  {
+    "suit": "Spades",
+    "color": "B",
+    "value": 3,
+    "card_name": "Three",
+    "code" : "3S"
+  },
+  {
+    "suit": "Spades",
+    "color": "B",
+    "value": 4,
+    "card_name": "Four",
+    "code" : "4S"
+  },
+  {
+    "suit": "Spades",
+    "color": "B",
+    "value": 5,
+    "card_name": "Five",
+    "code" : "5S"
+  },
+  {
+    "suit": "Spades",
+    "color": "B",
+    "value": 6,
+    "card_name": "Six",
+    "code" : "6S"
+  },
+  {
+    "suit": "Spades",
+    "color": "B",
+    "value": 7,
+    "card_name": "Seven",
+    "code" : "7S"
+  },
+  {
+    "suit": "Spades",
+    "color": "B",
+    "value": 8,
+    "card_name": "Eight",
+    "code" : "8S"
+  },
+  {
+    "suit": "Spades",
+    "color": "B",
+    "value": 9,
+    "card_name": "Nine",
+    "code" : "9S"
+  },
+  {
+    "suit": "Spades",
+    "color": "B",
+    "value": 10,
+    "card_name": "Ten",
+    "code" : "10S"
+  },
+  {
+    "suit": "Spades",
+    "color": "B",
+    "value": 10,
+    "card_name": "Jack",
+    "code" : "JS"
+  },
+  {
+    "suit": "Spades",
+    "color": "B",
+    "value": 10,
+    "card_name": "Queen",
+    "code" : "QS"
+  },
+  {
+    "suit": "Spades",
+    "color": "B",
+    "value": 10,
+    "card_name": "King",
+    "code" : "KS"
+  },
+  {
+    "suit": "Spades",
+    "color": "B",
+    "value": 1,
+    "card_name": "Ace",
+    "code" : "AS"
+  }
+]
