@@ -3,6 +3,7 @@ from Pieces import Deck
 import image_handler
 
 
+# TODO: add rules: push, naturals, ties, double down, splitting pairs, dealer's pay and settlement
 class playerBlackJack:
     points = 0
     name = ""
@@ -11,9 +12,11 @@ class playerBlackJack:
     count = 0
     images = None
     file_name = ""
+    public_images = ""
+    pub_file_name = ""
 
     def __init__(self, name):
-        self.points = 100
+        self.points = 1000
         self.name = str(name)
         self.name_client = name
         self.file_name = 'Image_Tmp/' + self.name + '_tmp' + '.png'
@@ -24,36 +27,51 @@ class playerBlackJack:
                   "car, kids, and soul", betted, self.points)
         else:
             self.points -= betted
-            self.betAmount = betted
+            self.betAmount = self.betAmount + betted
 
     def win(self):
         self.points += self.betAmount + (self.betAmount * 1.5)
 
-    def newHand(self, cards):
+    def newhand(self, cards):
         self.count = 0
         self.hand = []
+        self.betAmount = 0
         self.images = []
         self.bet(10)
         #TODO: make a check for black jack
+        print("card amount {}".format(len(cards)))
         for card in cards:
             self.count = self.count + card.value
             self.images.append('card_pics/' + card.code + ".png")
         self.hand = cards
         self.file_name = image_handler.image_combine(self.images, self.name)
+        self.prepare_public_hand()
+
+    def prepare_public_hand(self):
+        self.public_images = []
+        self.public_images.append('card_pics/' + self.hand[0].code + ".png")
+        self.public_images.append('card_pics/red_back.png')
+        self.pub_file_name = image_handler.image_combine(self.public_images, self.name + "_pub")
 
     def switch_ace_up(self):
         switched = False
         for card in self.hand:
+            print(card.card_name)
             if card.card_name == "Ace" and card.value == 1:
                 card.value = 11
-                return switched
+                switched = True
+                self.count += 10
+        return switched
 
     def switch_ace_down(self):
         switched = False
         for card in self.hand:
+            print(card.card_name)
             if card.card_name == "Ace" and card.value == 11:
                 card.value = 1
-                return switched
+                switched = True
+                self.count -= 10
+        return switched
 
     def hit(self, card):
         self.count = self.count + card.value
@@ -64,7 +82,7 @@ class playerBlackJack:
             self.images.append('card_pics/' + card.code + ".png")
 
         self.file_name = image_handler.image_combine(self.images, self.name)
-        print(self.file_name)
+        self.prepare_public_hand()
 
     def return_count(self):
         return "player " + self.name + " has a hand total of " + str(self.count) + " with a point total of " + str(self.points) + "\n"
@@ -91,6 +109,7 @@ class blackJack:
         for p in self.players:
             if p.name == player_name:
                 p.hit(self.deck.draw_card())
+                p.bet(10)
 
     def draw_cards(self):
         self.topAmount = 0
@@ -99,7 +118,7 @@ class blackJack:
             self.hand = []
             self.hand.append(self.deck.draw_card())
             self.hand.append(self.deck.draw_card())
-            self.players[n].newHand(self.hand)
+            self.players[n].newhand(self.hand)
 
     def compare_cards(self):
         self.winningOrder = []

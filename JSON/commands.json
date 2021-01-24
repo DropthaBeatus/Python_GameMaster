@@ -1,0 +1,44 @@
+{
+    "BlackJack_Commands": [
+        {
+            "enum": "START",
+            "name": "$play21 start",
+            "description": "Starts the black jack game. All players automatically draw 2 cards."
+        },
+        {
+            "enum": "HIT",
+            "name": "$play21 hit",
+            "description": "Adds a card to the player who called this command."
+        },
+        {
+            "enum": "COMPARE",
+            "name": "$play21 compare",
+            "description": "Compares all player cards values. Who ever has the highest value under 21 wins. Players automatically draw 2 cards."
+        },
+        {
+            "enum": "INFO",
+            "name": "$play21 info",
+            "description": "Displays all command information and game rules."
+        },
+        {
+            "enum": "",
+            "description":
+        },
+        {
+            "enum": "",
+            "description":
+        },
+        {
+            "enum": "",
+            "description":
+        },
+        {
+            "enum": "",
+            "description":
+        },
+        {
+            "enum": "",
+            "description":
+        }
+    ]
+}

@@ -64,18 +64,18 @@ def img_json_delete_todo(tmp_img):
 
     write_json(data)
 
+
 def img_json_delete():
     with open('JSON/delete_temp_imgs_todo.json') as file:
         data = json.load(file)
         temp = data['files_to_delete']
 
-    x = 0
-    while x < len(temp):
-        row = temp[x]
-        print(row['name'])
+    x = len(temp)
+    while x > 0:
+        row = temp[x-1]
         if delete_image(row['name']):
-            del temp[x]
-        x += 1
+            del temp[x-1]
+        x -= 1
 
     with open('JSON/delete_temp_imgs_todo.json', 'w') as file:
         json.dump(data, file, indent=4)
