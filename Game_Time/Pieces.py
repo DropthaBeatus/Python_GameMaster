@@ -16,7 +16,7 @@ class Deck:
     cards = []
 
     def __init__(self):
-        with open('JSON/cards.json') as f:
+        with open('../JSON/cards.json') as f:
             data = json.load(f)
         for n in data:
             self.cards.append(Card(n["value"], n["suit"], n['card_name'], n['code'], n['color']))

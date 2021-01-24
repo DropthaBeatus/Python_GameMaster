@@ -57,7 +57,7 @@ def img_json_delete_todo(tmp_img):
         with open(filename, 'w') as f:
             json.dump(data, f, indent=4)
 
-    with open('JSON/delete_temp_imgs_todo.json') as json_file:
+    with open('../JSON/delete_temp_imgs_todo.json') as json_file:
         data = json.load(json_file)
         temp = data['files_to_delete']
         temp.append(file_to_delete)
@@ -66,7 +66,7 @@ def img_json_delete_todo(tmp_img):
 
 
 def img_json_delete():
-    with open('JSON/delete_temp_imgs_todo.json') as file:
+    with open('../JSON/delete_temp_imgs_todo.json') as file:
         data = json.load(file)
         temp = data['files_to_delete']
 
@@ -77,7 +77,7 @@ def img_json_delete():
             del temp[x-1]
         x -= 1
 
-    with open('JSON/delete_temp_imgs_todo.json', 'w') as file:
+    with open('../JSON/delete_temp_imgs_todo.json', 'w') as file:
         json.dump(data, file, indent=4)
 
 

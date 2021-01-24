@@ -1,10 +1,10 @@
 import discord.ext
 from discord.ext import commands
-from Blackjack import blackJack
+from Game_Time.Blackjack import blackJack
 
 
 #TODO: add JSON information for commands and explanation for rules
-class Bot21(commands.Cog):
+class Cog21(commands.Cog):
     client = discord.Client()
 
     def __init__(self, bot):

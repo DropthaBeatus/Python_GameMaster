@@ -1,6 +1,6 @@
 import copy
 from Pieces import Deck
-import image_handler
+from Data_Handlers import image_handler
 
 
 # TODO: add rules: push, naturals, ties, double down, splitting pairs, dealer's pay and settlement
