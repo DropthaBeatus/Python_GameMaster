@@ -1,3 +1,13 @@
 # Default ignored files
 /shelf/
 /workspace.xml
+
+
+# virtualenv
+venv/
+ENV/
+
+# pycharm Cache
+__pycache__/
+*.py[cod]
+*$py.class
