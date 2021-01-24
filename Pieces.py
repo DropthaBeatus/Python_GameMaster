@@ -2,6 +2,7 @@ import random
 import copy
 import json
 
+
 class Card:
     def __init__(self, value, suite, card_name, code, color):
         self.value = value
@@ -11,12 +12,11 @@ class Card:
         self.color = color
 
 
-
 class Deck:
     cards = []
 
     def __init__(self):
-        with open('cards.json') as f:
+        with open('JSON/cards.json') as f:
             data = json.load(f)
         for n in data:
             self.cards.append(Card(n["value"], n["suit"], n['card_name'], n['code'], n['color']))
@@ -30,6 +30,6 @@ class Deck:
         random.shuffle(self.cards)
 
     def draw_card(self):
-        drawed = copy.deepcopy(self.cards[0])
+        draw = copy.deepcopy(self.cards[0])
         self.cards.pop(0)
-        return drawed
+        return draw

@@ -1,6 +1,5 @@
 import copy
 from Pieces import Deck
-import discord
 import image_handler
 
 
@@ -11,14 +10,13 @@ class playerBlackJack:
     hand = []
     count = 0
     images = None
-    discord_img = None
     file_name = ""
 
     def __init__(self, name):
         self.points = 100
         self.name = str(name)
         self.name_client = name
-        self.file_name = self.name + '_tmp' + '.png'
+        self.file_name = 'Image_Tmp/' + self.name + '_tmp' + '.png'
 
     def bet(self, betted):
         if betted > self.points:
@@ -37,34 +35,36 @@ class playerBlackJack:
         self.images = []
         self.bet(10)
         #TODO: make a check for black jack
-        #TODO: make permiations for Aces
         for card in cards:
             self.count = self.count + card.value
             self.images.append('card_pics/' + card.code + ".png")
         self.hand = cards
-        image_handler.image_combine(self.images, self.file_name)
-        self.discord_img = discord.File(self.file_name)
+        self.file_name = image_handler.image_combine(self.images, self.name)
 
     def switch_ace_up(self):
         switched = False
         for card in self.hand:
-            if card.hand_name == "Ace" and card.value == 1:
+            if card.card_name == "Ace" and card.value == 1:
                 card.value = 11
                 return switched
 
     def switch_ace_down(self):
         switched = False
         for card in self.hand:
-            if card.hand_name == "Ace" and card.value == 11:
+            if card.card_name == "Ace" and card.value == 11:
                 card.value = 1
                 return switched
 
     def hit(self, card):
         self.count = self.count + card.value
-        self.images.append(discord.File('card_pics/' + card.code + ".png"))
         self.hand.append(card)
-        image_handler.delete_image(self.file_name)
-        self.discord_img = image_handler.image_combine(self.images, self.file_name)
+        self.images = []
+        #TODO make an append and fix the open issue with image_handler.image_combine(): This will save processing time
+        for card in self.hand:
+            self.images.append('card_pics/' + card.code + ".png")
+
+        self.file_name = image_handler.image_combine(self.images, self.name)
+        print(self.file_name)
 
     def return_count(self):
         return "player " + self.name + " has a hand total of " + str(self.count) + " with a point total of " + str(self.points) + "\n"
@@ -101,26 +101,29 @@ class blackJack:
             self.hand.append(self.deck.draw_card())
             self.players[n].newHand(self.hand)
 
-        # TODO remove this later
-        #self.compare_cards()
-
     def compare_cards(self):
         self.winningOrder = []
-        self.winningOrder = copy.deepcopy(self.players)
+        self.winningOrder = copy.copy(self.players)
         sorted(self.winningOrder, key=lambda player: player.count)
-
+        prev = -1
         for n in range(len(self.winningOrder)-1, -1, -1):
+            print("A count of {} for player: {}" .format(self.winningOrder[n].count, self.winningOrder[n].name))
             if self.winningOrder[n].count > 21:
                 self.winningOrder.pop(n)
             elif self.winningOrder[n].count > self.topAmount:
                 self.topAmount = self.winningOrder[n].count
+                if prev == -1:
+                    prev = n
+                else:
+                    self.winningOrder.pop(prev)
             elif self.winningOrder[n].count < self.topAmount:
                 self.winningOrder.pop(n)
 
         if len(self.winningOrder) == 1:
-            index = self.winningOrder[0].name
-            self.players[index].win()
-            return ("Player {0} wins with {1} and now has a point total of {2}".format(self.players[index].name, self.players[index].count,  self.players[index].points))
+            for player in self.players:
+                if player.name == self.winningOrder[0].name:
+                    player.win()
+                    return "Player {} wins with {} and now has a point total of {}".format(player.name, player.count, player.points)
         else:
             tie_string = ""
             for player in self.winningOrder:
@@ -132,9 +135,8 @@ class blackJack:
 
     def check_card_count(self, drawn):
         if len(self.deck.cards) <= drawn:
-            tmpdeck = self.deck.cards
-            self.deck = Deck()
-            for card in tmpdeck:
+            tempdeck = Deck()
+            for card in tempdeck:
                 self.deck.cards.append(card)
 
     def hit_hand(self, player_name):

@@ -1,5 +1,4 @@
 import discord.ext
-import image_handler
 from discord.ext import commands
 from Blackjack import blackJack
 
@@ -17,6 +16,7 @@ class Bot21(commands.Cog):
 
     @commands.command()
     async def play21(self, ctx, arg=""):
+        #TODO: if play21 is started twice will need to to wipe of previous game
         member = ctx.author
         player_names = []
         print(arg)
@@ -55,7 +55,10 @@ class Bot21(commands.Cog):
                 self.game.draw_card(player.name)
                 await self.print_hand(player)
         elif arg == "compare":
-            ctx.send(self.game.compare_cards())
+            await ctx.send(self.game.compare_cards())
+            self.game.draw_cards()
+            for player in self.game.players:
+                await self.send_images(player)
 
     def add_game(self, game):
         if game == "play_blackjack":
@@ -63,7 +66,7 @@ class Bot21(commands.Cog):
 
     async def print_hand(self, player):
         await player.name_client.send(player.return_count())
-        await player.name_client.send(file=player.discord_img)
+        await player.name_client.send(file=discord.File(player.file_name))
 
     async def send_images(self, player):
         if player.name != "House":
@@ -79,9 +82,7 @@ class Bot21(commands.Cog):
     async def warn_msg(self, player, warn):
         await player.name_client.send(warn)
 
-bot = commands.Bot(command_prefix='$')
-bot.add_cog(Bot21(bot))
 
-bot.run('insert token here')
+
 
 
